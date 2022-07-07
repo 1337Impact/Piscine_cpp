@@ -1,56 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenkhat <mbenkhat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 14:23:54 by mbenkhat          #+#    #+#             */
+/*   Updated: 2022/07/03 14:29:10 by mbenkhat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <stdlib.h>
 
-PhoneBook ph;
-
-Contact *PhoneBook::add_contact(Contact *contacts, Contact tobeadded){
-    int s = 0;
-    while (contacts[s] != NULL)
-        s++;
-    if (s < 8){
-        contacts[s - 1] = tobeadded;
-        contacts[s] = NULL;
-    }
-    else{
-        for (int i = 0; i < 7; i++){
-            contacts[i] = contacts[i+1];
-        }
-        contacts[7] = tobeadded;
-    }
-    return contacts;
-}
-
-void PhoneBook::ADD(void){
-    Contact c1;
-    
-    std::cin >> c1.first_name;
-    std::cin >> c1.last_name;
-    std::cin >> c1.nickname;
-    std::cin >> c1.nickname;
-    std::cin >> c1.darkest_secret;
-
-    c = add_contact(c, c1);
-}
-
-
-
-void    PhoneBook::SEARCH(void){
-    for (int i = 0; c[i] != NULL; i++){
-        std::cout << c[i].first_name;
-    }
+void    PhoneBook::ADD(){
+    std::string data[4];
+    std::cin >> data[0];
+    std::cin >> data[1];
+    std::cin >> data[2];
+    std::cin >> data[3];
+    std::cin >> data[4];
+    Contact new_c(data);
 }
 
 void    PhoneBook::EXIT(void){
     exit(0);
-}
-
-int main(void){
-    PhoneBook phone;
-
-    phone.ADD();
-    phone.ADD();
-    phone.ADD();
-    phone.SEARCH();
 }
