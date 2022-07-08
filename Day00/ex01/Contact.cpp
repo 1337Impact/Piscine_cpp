@@ -6,11 +6,13 @@
 /*   By: mbenkhat <mbenkhat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:58:41 by mbenkhat          #+#    #+#             */
-/*   Updated: 2022/06/30 14:14:05 by mbenkhat         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:49:19 by mbenkhat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact(){}
 
 Contact::Contact(std::string* data)
 {
@@ -40,3 +42,5 @@ std::string    Contact::get_phone_number(){
 std::string    Contact::get_darkest_secret(){
     return darkest_secret;
 }
+
+Contact::~Contact(){}

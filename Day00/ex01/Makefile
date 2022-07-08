@@ -6,14 +6,14 @@ SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 HEADER = PhoneBook.hpp Contact.hpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o phonebook
 
-%.o : %.c
+%.o : %.cpp
 	c++ $(FLAGS) -c $<
 
 clean :
