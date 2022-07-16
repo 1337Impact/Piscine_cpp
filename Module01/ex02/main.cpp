@@ -16,4 +16,3 @@ int main()
     std::cout << *ptr << std::endl;
     std::cout << ref << std::endl;
 }
-Makefile main.cpp Weapon.hpp Weapon.cpp HumanA.hpp HumanA.cpp HumanB.hpp HumanB.cpp

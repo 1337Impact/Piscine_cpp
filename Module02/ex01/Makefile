@@ -1,4 +1,4 @@
-NAME = orthodox
+NAME = fixed
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
