@@ -1,19 +1,19 @@
-NAME = zombie
+NAME = fixed
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRCS = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
+SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
-HEADER = Zombie.hpp
+HEADER = Fixed.hpp Point.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(HEADER)
 	c++ $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp
 	c++ $(FLAGS) -c $<
 
 clean :
