@@ -1,25 +1,24 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-{
+ClapTrap::ClapTrap(){
 	std::cout << "ClapTrap default constractor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name )
 : _name(name), _hitPoint(10), _energy(10), _damage(0)
 {
-	std::cout << "constacter called with name: " << name << std::endl;
+	std::cout << "ClapTrap default constacter called with name: " << name << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & obj )
 : _name(obj._name), _hitPoint(obj._hitPoint), _energy(obj._energy), _damage(obj._damage)
 {
-	std::cout << "copy constacter called with name: " << obj._name << std::endl;
+	std::cout << "ClapTrap copy constacter called with name: " << obj._name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "destacter called!" << std::endl;
+	std::cout << "ClapTrap destacter called!" << std::endl;
 }
 
 ClapTrap	& ClapTrap::operator = ( const ClapTrap & obj){
@@ -27,7 +26,7 @@ ClapTrap	& ClapTrap::operator = ( const ClapTrap & obj){
 	this->_hitPoint = obj._hitPoint;
 	this->_damage = obj._damage;
 	this->_energy = obj._energy;
-	std::cout << "copy assignment operator called!" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called!" << std::endl;
 	return *this;
 }
 
