@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SCARVTRAP_HPP
 #define SCARVTRAP_HPP
 

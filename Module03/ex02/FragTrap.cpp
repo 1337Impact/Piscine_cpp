@@ -5,7 +5,6 @@ FragTrap::FragTrap(){
 }
 
 FragTrap::FragTrap( const std::string & name)
-:ClapTrap(name)
 {
 	std::cout << "FragTrap constractor called with name: "
 			<< name << std::endl;
