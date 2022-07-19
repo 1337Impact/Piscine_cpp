@@ -2,9 +2,9 @@ NAME = executable
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror  
 
-SRCS = main.cpp ClapTrap.cpp ScarvTrap.cpp FragTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-HEADER = ClapTrap.hpp ScarvTrap.hpp FragTrap.hpp
+HEADER = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

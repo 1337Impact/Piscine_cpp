@@ -1,6 +1,8 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap()
+:_name("defualt"), _hitPoint(10), _energy(10), _damage(0)
+{
 	std::cout << "ClapTrap default constractor called!" << std::endl;
 }
 

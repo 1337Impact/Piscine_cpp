@@ -11,8 +11,8 @@ ScarvTrap::ScarvTrap( const std::string & name)
 			<< name << std::endl;
 	_name = name;
 	_hitPoint = 100;
-	_energy = 100;
-	_damage = 30;
+	_energy = 50;
+	_damage = 20;
 }
 
 ScarvTrap::ScarvTrap( const ScarvTrap & obj)

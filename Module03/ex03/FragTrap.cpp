@@ -1,7 +1,12 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(){
+FragTrap::FragTrap()
+{
 	std::cout << "FragTrap default constractor called!" << std::endl;
+	_name = "defualt";
+	_hitPoint = 100;
+	_energy = 100;
+	_damage = 30;
 }
 
 FragTrap::FragTrap( const std::string & name)
