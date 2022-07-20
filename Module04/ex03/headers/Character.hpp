@@ -6,11 +6,10 @@
 class Character : public ICharacter
 {
 public:
-	// Constructors
+	Character();
 	Character(const std::string& name);
-	Character(const Character& other);
+	Character(const Character& obj);
 	
-	// Assignment operator overload
 	Character& operator=(const Character& rhs);
 
 	// Destructor
