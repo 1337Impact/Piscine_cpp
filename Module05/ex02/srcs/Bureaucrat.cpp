@@ -1,5 +1,5 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "../headers/Bureaucrat.hpp"
+#include "../headers/Form.hpp"
 
 
 Bureaucrat::Bureaucrat()
@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat( std::string & name, int grade)
+Bureaucrat::Bureaucrat( std::string name, int grade)
 :_name(name), _grade(grade)
 {
     if (_grade < 1){
@@ -70,6 +70,17 @@ void    Bureaucrat::signForm(Form & form){
     {
         std::cout << *this << " couldn't sign " << form
                 << " because " << e.what() << std::endl;
+    }
+}
+void Bureaucrat::executeForm(Form & form){
+    try
+    {
+        form.action(*this);
+        std::cout << *this << " executed " << form << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << *this << " can't be excute " << form << " because " << e.what() << std::endl;
     }
 }
 

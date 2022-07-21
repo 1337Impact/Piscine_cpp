@@ -1,26 +1,28 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 int main(){
-    std::string name = "theGreatest";
-    std::string name2 = "notGreatest";
-    Bureaucrat gt(name, 1);
-    Bureaucrat gt2 = Bureaucrat(name, 150);
+    std::string fName = "noName";
+    std::string bName = "theGreatest";
+    try{
+        std::cout << "tests for Form" << std::endl;
+        Form        form(fName, 1, 12);
+        std::cout << form.getName() << std::endl;
+        std::cout << form.getSignGrade() << std::endl;
+        std::cout << form.getExecuteGrade() << std::endl;
+        std::cout << form.isSigned() << std::endl;
+        std::cout << "tests for Bureucrat" << std::endl;
+        Bureaucrat gt(bName, 1);
+        std::cout << gt.getName() << std::endl;
+        std::cout << gt.getGrade() << std::endl;
+        gt.incrementGrade(); // should throw exception
+        gt.decrementGrade(); 
+        gt.signForm(form);
+        std::cout << form.isSigned() << std::endl;
+    }
+    catch(std::exception & e){
+        std::cout << e.what() << std::endl;
+    }
 
-    try{
-        gt.decrementGrade();
-    }
-    catch (std::exception & e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    try{
-        gt2.decrementGrade();
-    }
-    catch (std::exception & e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << gt << std::endl;
-    std::cout << gt2 << std::endl;
+    
 }

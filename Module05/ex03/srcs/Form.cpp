@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "../headers/Form.hpp"
 
 
 Form::Form()
@@ -6,8 +6,18 @@ Form::Form()
 {
 }
 
-Form::Form( std::string & name, int sGrade, int eGrade)
+Form::Form( std::string name, int sGrade, int eGrade)
 :_name(name), _signed(false), _sGrade(sGrade), _eGrade(eGrade)
+{
+    if (_sGrade < 1 || _eGrade < 1){
+        throw GradeTooHighException();
+    }
+    else if (_sGrade > 150 || _eGrade > 150){
+        throw GradeTooLowException();
+    }
+}
+Form::Form( std::string name, std::string target, int sGrade, int eGrade)
+:_name(name), _target(target), _signed(false), _sGrade(sGrade), _eGrade(eGrade)
 {
     if (_sGrade < 1 || _eGrade < 1){
         throw GradeTooHighException();
@@ -18,7 +28,7 @@ Form::Form( std::string & name, int sGrade, int eGrade)
 }
 
 Form::Form( const Form & obj)
-:_name(obj._name), _signed(obj._signed), _sGrade(obj._sGrade), _eGrade(obj._eGrade)
+:_name(obj._name), _target(obj._target), _signed(obj._signed), _sGrade(obj._sGrade), _eGrade(obj._eGrade)
 {
 }
 
@@ -38,23 +48,27 @@ std::string Form::getName( void ) const{
     return this->_name;
 }
 
+std::string Form::getTarget( void ) const{
+    return this->_target;
+}
+
 bool    Form::isSigned( void ) const{
-    return _signed;
+    return this->_signed;
 }
 
 int Form::getSignGrade( void ) const{
-    return _sGrade;
+    return this->_sGrade;
 }
 
 int Form::getExecuteGrade( void ) const{
-    return _sGrade;
+    return this->_sGrade;
 }
 
 //mumber functions
 void    Form::beSigned( const Bureaucrat & obj){
     if (!this->isSigned()){
         if (obj.getGrade() <= this->_sGrade){
-            _signed = true;
+            this->_signed = true;
         }
         else{
             throw GradeTooLowException();
@@ -65,6 +79,13 @@ void    Form::beSigned( const Bureaucrat & obj){
     }
 }
 
+void Form::execute(Bureaucrat const & executor) const
+{
+    if (!this->isSigned())
+        throw Form::FormNotSignedException();
+    if (executor.getGrade() > this->_eGrade)
+        throw Form::GradeTooLowException();
+}
 
 
 // exception classes emplimentation
@@ -76,6 +97,9 @@ const char * Form::GradeTooLowException::what() const throw(){
 }
 const char * Form::FormAlreadySignedException::what() const throw(){
     return "Exception: Form already Signed!";
+}
+const char * Form::FormNotSignedException::what() const throw(){
+    return "Exception: Form Not Signed!";
 }
 
 // overload of the insertion («) operator

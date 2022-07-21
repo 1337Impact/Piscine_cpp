@@ -15,7 +15,7 @@ private:
 public:
     // constractor/destractor
     Bureaucrat();
-    Bureaucrat( std::string & name, int grade);
+    Bureaucrat( std::string name, int grade);
     Bureaucrat( const Bureaucrat & obj);
 
     ~Bureaucrat();
@@ -31,6 +31,7 @@ public:
     void decrementGrade( void );
 
     void signForm( Form & form);
+    void executeForm(Form & form);
 
     // exception classes emplimentation
     class GradeTooHighException : public std::exception
