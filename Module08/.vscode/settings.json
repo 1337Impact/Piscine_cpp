@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "__hash_table": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "locale": "cpp",
+        "memory": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "__config": "cpp"
+    }
+}
