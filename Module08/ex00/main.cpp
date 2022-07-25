@@ -2,16 +2,24 @@
 
 int main()
 {
-    int n = 12;
-    std::vector<int> value;
-    value.push_back(12);
-    value.push_back(10);
-    value.push_back(20);
-    val();
+    typedef std::vector<int> cont;
+    cont obj;
+    obj.push_back(12);
+    obj.push_back(10);
+    obj.push_back(20);
     try
     {
-        easyfind(value, n);
-        std::cout << n << ": Has Been Found" << std::endl;
+        cont::iterator name = easyfind(obj, 12);
+        std::cout << *name << ": Has Been Found" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << '\n';
+    }
+    try
+    {
+        cont::iterator name = easyfind(obj, 15);
+        std::cout << *name << ": Has Been Found" << std::endl;
     }
     catch(const std::exception& e)
     {

@@ -6,21 +6,20 @@
 #include <exception>
 
 
-template <typename T>
-void easyfind(T value, int n)
+class NotFoundException : public std::exception
 {
-    class NotFoundException : public std::exception
-    {
-        public:
-            const char *what() const throw(){
-                return "Exception: Not Found!";
-            }
-    };
-    for (std::vector<int>::iterator it = value.begin(); it != value.end(); it++)
-    {
-        if (*it == n){
-            return ;
+    public:
+        const char *what() const throw(){
+            return "Exception: Not Found!";
         }
-    }
+};
+
+template <typename T>
+typename T::iterator easyfind(T &container, int n)
+{
+    typename T::iterator it = container.begin();
+    for (; it != container.end(); it++)
+        if (*it == n)
+            return it;
     throw NotFoundException();
 }
